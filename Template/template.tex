@@ -1,0 +1,59 @@
+\documentclass[12pt,a4]{article}
+
+\usepackage{graphicx,amsmath,amssymb,amsthm, boxedminipage, bm}
+\usepackage{float}
+\usepackage[body={14.64cm, 24.62cm}, centering, dvipdfm]{geometry}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\scalar}[2]{\ensuremath{\langle #1, #2\rangle}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\norm}[1]{\|#1\|}
+\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\nth}[1]{#1^{\textsuperscript{th}}}
+
+
+\newcommand{\N}{\mathbb{N}}
+
+\newcommand{\R}{\mathbb{R}}
+
+\newcounter{exercise}
+
+\newcommand{\exercise}{\addtocounter{exercise}{1}\noindent\textbf{Exercise \arabic{section}.\arabic{exercise}. }}
+
+
+
+\begin{document}
+
+\date{
+	2015
+	-
+	%month
+	-
+	%date
+}
+
+\author{Dumb Ways to Die}
+
+\title{Algorithms and Complexity\\
+  Homework Assignment 
+  %Add Number Here
+  \\
+}
+\maketitle
+
+\setcounter{section}{
+	%Add Number Here
+}
+\section{Add Title Here}
+
+\input{
+	%Add Your File Name
+}
+
+\end{document}

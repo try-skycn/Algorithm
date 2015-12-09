@@ -39,54 +39,11 @@
 \setcounter{section}{4}
 \section{Basic Probability Theory}
 
-\exercise{}
-Let	$X$ be a random variable taking on values in $\mathbb{N}_0$. Prove that $\mathbb{E}[X] = \sum_{k \geq 1} Pr[X \geq k]$.
-	\begin{proof}
-		By the definition of expected value, we have
-		\begin{eqnarray*}
-			\mathbb{E}[X] &= &\sum_{k = 0}^{\infty}kPr[X=k]\\
-			&= &\sum_{k = 0}^{\infty}k(Pr[X\geq k] - Pr[X \geq k + 1])\\
-			&= &\sum_{k = 0}^{\infty}kPr[X\geq k] - \sum_{k = 1}^{\infty}(k- 1)Pr[X \geq k])\\
-			&= &\sum_{k = 1}^{\infty} Pr[X \geq k]
-		\end{eqnarray*}
-		Thus we've proved $\mathbb{E}[X] = \sum_{k \geq 1} Pr[X \geq k]$, where $k \in \mathbb{N}_0$.
-	\end{proof}
-\exercise{}
-We toss a coin that show $1$ with probability $p$ and $0$ with probability $1-p$. We toss it until it shows $1$. Let $T$ be the number of tosses we have done in total.
-\begin{itemize}
-	\item What is $Pr[T = k]$?\\
-	$T=k$ means we have tossed the coin showing 0 for $(k-1)$times and showing 1 at the $k$-th time. So the probability is
-		\begin{eqnarray*}
-			Pr[T = k] &= &p(1-p)^{k-1}
-		\end{eqnarray*}
-	\item What is $Pr[T \geq k]$?\\
-	$T \geq k$ means we must have tossed the coin showing 0 for $(k-1)$times. Thus the probability is
-		\begin{eqnarray*}
-			Pr[T \geq k] &= &(1-p)^{k-1}
-		\end{eqnarray*}
-	\item What is $\mathbb{E}[T]$?\\
-		The expected value of $T$ is
-		\begin{eqnarray*}
-			\mathbb{E}[T] &= &\sum_{k=1}^{\infty}k Pr[T = k]\\
-			&= &\sum_{k = 1}^{\infty} kp(1-p)^{k-1}
-		\end{eqnarray*}
-		In order to sum it up, we do calculation as following
-		\begin{eqnarray*}
-			\mathbb{E}[T] - (1 - p)\cdot\mathbb{E}[T] 
-			&= &p\cdot\mathbb{E}[T]\\
-			&= &\sum_{k = 1}^{\infty} kp(1-p)^{k-1} - \sum_{k = 1}^{\infty} kp(1-p)^{k}\\
-			&= &\sum_{k = 1}^{\infty} kp(1-p)^{k-1} - \sum_{k = 1}^{\infty} (k-1)p(1-p)^{k - 1}\\
-			&= &\sum_{k = 1}^{\infty} p(1-p)^{k-1}\\
-			&= &p\cdot \lim\limits_{k\rightarrow \infty} \frac{1 - (1-p)^k}{1 - (1 - p)} = 1\\
-		\end{eqnarray*}
-		$\Rightarrow$
-		\[\mathbb{E}[T] = 1 / p\]
-		Hence the expected value of $T$ is $1/p$.
-\end{itemize}
+\input{yrz-5_1-5_2.tex}
 
 \exercise{}
 
-\input{cty-5_3}
+\input{cty-5_3.tex}
 
 \exercise{}
 

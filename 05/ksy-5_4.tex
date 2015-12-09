@@ -1,2 +1,46 @@
 \item
+	For any $ i\in\F_{p} $, it has 
+	\[
+		\begin{aligned}
+			\Pr[X_{u} = i] &= \sum_{x\in \F_{p}}\Pr[a = x, b = (i - x)u^{-1}] \\
+		\end{aligned}
+	\]	
 	
+	Because $ a $, $ b \in \F_{p}$ are independent and uniform at random, we have
+	\[ \forall x \in \F_{p}:\Pr[a = x] = \frac{1}{p}, \] \[ \forall y\in\F_{p}:\Pr[b = y] = \frac{1}{p} \] and \[ \Pr[a = x, b = y] = \Pr[a = x]\cdot\Pr[b = y] = \frac{1}{p^{2}}. \]
+	
+	So \[ \Pr[X_{u} = i] = \sum_{x\in \F_{p}}\Pr[a = x]\Pr[b = (i - a)u^{-1}] = p\cdot\frac{1}{p^{2}} = \frac{1}{p} \]
+	
+	For any $ u $, $ v\in\F_{p} (u\neq v)$, we have
+	\[ 
+		\begin{aligned}
+			\Pr[X_{u} = i,X_{v} = j] &= \Pr[a + bu = i, a + bv = j] \\
+			                         &= \Pr[\left[\begin{matrix}
+				                         1 & u \\
+				                         1 & v \\
+			                         \end{matrix}\right]\left[\begin{matrix}
+				                         a \\
+				                         b \\
+			                         \end{matrix}\right] = \left[\begin{matrix}
+				                         i \\
+				                         j \\
+			                         \end{matrix}\right]]. \\
+		\end{aligned}
+	\]
+	
+	Note that
+	\[ \det(\left|\begin{matrix}
+	1 & u \\
+	1 & v \\
+	\end{matrix}\right|) = v - u \neq 0. \]
+	So the linear system above has a unique solution in $ \F_{p}^{2} $ and denote it as $ (a_{0}, b_{0}) $. 
+	Then 
+	\[
+		\begin{aligned}
+			\Pr[X_{u} = i,X_{v} = j] &= \Pr[a = a_{0}, b = b_{0}] \\
+			                         &= \frac{1}{p}\cdot\frac{1}{p} \\
+			                         &= \Pr[X_{u} = i]\cdot\Pr[X_{v} = j]. \\
+		\end{aligned}
+	\]
+	
+	Therefore, the $ X_{u} $ are pairwise independent.

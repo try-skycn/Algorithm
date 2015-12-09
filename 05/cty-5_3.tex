@@ -1,0 +1,63 @@
+Since there are just $5$ nodes, we denote each vertex by element in $\mathbf{F}_5$.
+
+Define
+\[
+	\mathbf{E}(\overline{i})\quad\overline{i}\in\mathbf{F}_5
+\]
+as the expected number of steps the drunk person takes until he reaches $\overline{0}$ if he starts his random walk at vertex $\overline{i}\in\mathbf{F}_5$.
+
+Obviously
+\[
+	\mathbf{E}(\overline{0})=0
+\]
+since once he reaches $\overline{0}$ he will never move.
+
+Each step, he walks randomly to one of the two neighbouring vertices. Then
+\[
+	\mathbf{E}(\overline{i})=\frac{\mathbf{E}(\overline{i+1})+\mathbf{E}(\overline{i-1})}{2}+1
+\]
+
+Every equation is linear. We have now a system of linear equations
+\[
+	\begin{bmatrix}
+		1 & & & & \\
+		\frac{1}{2} & -1 & \frac{1}{2} & & \\
+		 & \frac{1}{2} & -1 & \frac{1}{2} & \\
+		 & & \frac{1}{2} & -1 & \frac{1}{2} \\
+		\frac{1}{2} & & & \frac{1}{2} & -1
+	\end{bmatrix}
+	\begin{bmatrix}
+		\mathbf{E}(\overline{0}) \\
+		\mathbf{E}(\overline{1}) \\
+		\mathbf{E}(\overline{2}) \\
+		\mathbf{E}(\overline{3}) \\
+		\mathbf{E}(\overline{4})
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		0 \\
+		-1 \\
+		-1 \\
+		-1 \\
+		-1
+	\end{bmatrix}
+\]
+Solution of the above system is
+\[
+	\begin{bmatrix}
+		\mathbf{E}(\overline{0}) \\
+		\mathbf{E}(\overline{1}) \\
+		\mathbf{E}(\overline{2}) \\
+		\mathbf{E}(\overline{3}) \\
+		\mathbf{E}(\overline{4})
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		0 \\
+		4 \\
+		6 \\
+		6 \\
+		4
+	\end{bmatrix}
+\]
+Done.

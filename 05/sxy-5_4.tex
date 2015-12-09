@@ -1,0 +1,158 @@
+		\item
+		
+			Firstly, for any distinct $u, v, w \in \mathbb{F}_{p}$
+			\begin{eqnarray*}
+				&&\text{Pr}[Y_u = i, Y_v = j, Y_w = k] \\
+				= &&\text{Pr}[a + bu + cu^2 = i, a + bv + cv^2 = j, a + bw + cw^2 = k] \\
+				= &&\text{Pr}[
+				\left[
+				\begin{matrix}
+					1 & u & u^2 \\
+					1 & v & v^2 \\
+					1 & w & w^2
+				\end{matrix}
+				\right]
+				\left[
+				\begin{matrix}
+					a \\
+					b \\
+					c
+				\end{matrix}
+				\right]
+				=
+				\left[
+				\begin{matrix}
+					i \\
+					j \\
+					k
+				\end{matrix}
+				\right]
+				]
+			\end{eqnarray*}
+			
+			Note that
+			\[
+				\det
+				\left(\left|
+				\begin{matrix}
+					1 & u & u^2 \\
+					1 & v & v^2 \\
+					1 & w & w^2
+				\end{matrix}
+				\right|\right)
+				=
+				(v - u)(w - u)(w - v)
+				\neq
+				0
+			\]
+			
+			So the system of linear equations above has and only has one solution in $\mathbb{F}^{3}_{p}$.
+			Denote it as $(a_0, b_0, c_0)$.
+			
+			Therefore,
+			\begin{eqnarray*}
+				\text{Pr}[Y_u = i, Y_v = j, Y_w = k]
+				= \text{Pr}[a = a_0, b = b_0, c = c_0]
+				= \frac{1}{p^3}
+			\end{eqnarray*}
+			
+			Secondly,
+			\begin{eqnarray*}
+				&&\text{Pr}[Y_u = i] \\
+				= &&\text{Pr}[a + bu + cu^2 = i]
+			\end{eqnarray*}
+			
+			Obviously, for any $a_0, b_0 \in \mathbb{F}_{p}$, there exists and only exists one $c_0 \in \mathbb{F}_{p}$, such that $a_0 + b_0 u + c_0 u^2 = i$.
+			
+			Thus, there are altogether $p^2$ solutions.
+			
+			So
+			\begin{eqnarray*}
+				&&\text{Pr}[Y_u = i] \\
+				= &&\text{Pr}[a + bu + cu^2 = i] \\
+				= &&\frac{p^2}{p^3} \\
+				= &&\frac{1}{p}
+			\end{eqnarray*}
+			
+			Similarly,
+			\begin{eqnarray*}
+				&&\text{Pr}[Y_v = j] \\
+				= &&\text{Pr}[Y_w = k] \\
+				= &&\frac{1}{p}
+			\end{eqnarray*}
+			
+			Therefore,
+			\[
+				\text{Pr}[Y_u = i] \cdot \text{Pr}[Y_v = j] \cdot \text{Pr}[Y_w = k] = \frac{1}{p} \cdot \frac{1}{p} \cdot \frac{1}{p} = \frac{1}{p^3}
+			\]
+			
+			Finally,
+			\[
+				\text{Pr}[Y_u = i, Y_v = j, Y_w = k] = \text{Pr}[Y_u = i] \cdot \text{Pr}[Y_v = j] \cdot \text{Pr}[Y_w = k]
+			\]
+			
+			i.e., $Y_u$ are $3$-wise independent.
+		\item
+		
+			$\mathcal{H} = \{ f | f(x) = a x^2 + b x + c \quad a,b,c \in \mathbb{F}_{p} \}$
+			
+			\begin{proof}
+				Obviously, $|\mathcal{H}| = p^3$.
+				
+				For any distinct $u, v, w \in \mathbb{F}_{p}$ and arbitrary $i, j, k \in \mathbb{F}_{p}$,
+				
+				\begin{eqnarray*}
+					&&\mathop{\text{Pr}} \limits_{h \in \mathcal{H}} [h(u) = i, h(v) = j, h(w) = k] \\
+					= &&\mathop{\text{Pr}} \limits_{h \in \mathcal{H}} [a + bu + cu^2 = i, a + bv + cv^2 = j, a + bw + cw^2 = k] \\
+					= &&\mathop{\text{Pr}} \limits_{h \in \mathcal{H}}[
+					\left[
+					\begin{matrix}
+						1 & u & u^2 \\
+						1 & v & v^2 \\
+						1 & w & w^2
+					\end{matrix}
+					\right]
+					\left[
+					\begin{matrix}
+						a \\
+						b \\
+						c
+					\end{matrix}
+					\right]
+					=
+					\left[
+					\begin{matrix}
+						i \\
+						j \\
+						k
+					\end{matrix}
+					\right]
+					]
+				\end{eqnarray*}
+				
+				Note that
+				\[
+					\det
+					\left(\left|
+					\begin{matrix}
+						1 & u & u^2 \\
+						1 & v & v^2 \\
+						1 & w & w^2
+					\end{matrix}
+					\right|\right)
+					=
+					(v - u)(w - u)(w - v)
+					\neq
+					0
+				\]
+				
+				So the system of linear equations above has and only has one solution in $\mathbb{F}^{3}_{p}$.
+				Denote it as $(a_0, b_0, c_0)$.
+				
+				Therefore,
+				\begin{eqnarray*}
+					\mathop{\text{Pr}} \limits_{h \in \mathcal{H}}[h(u) = i, h(v) = j, h(w) = k]
+					= \mathop{\text{Pr}} \limits_{h \in \mathcal{H}}[a = a_0, b = b_0, c = c_0]
+					= \frac{1}{p^3}
+				\end{eqnarray*}
+			\end{proof}

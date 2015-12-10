@@ -1,3 +1,66 @@
+\documentclass[12pt,a4]{article}
+
+\usepackage{graphicx,amsmath,amssymb,amsthm, boxedminipage, bm}
+\usepackage{hyperref}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\scalar}[2]{\ensuremath{\langle #1, #2\rangle}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\norm}[1]{\|#1\|}
+\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\nth}[1]{#1^{\textsuperscript{th}}}
+
+
+\newcommand{\N}{\mathbb{N}}
+
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\Exercise}[1]{\noindent\textbf{Exercise }\textbf{#1}}
+\newcommand{\Question}[1]{\noindent\textbf{Question }\textbf{#1}}
+\newcommand{\solution}{\\[8pt]\noindent\textit{Sol. }}
+
+\newcommand\question[1]{\vspace{.25in}\hrule\vspace{.5em}\textbf{#1}\vspace{.5em}\hrule\vspace{.10in}}
+\newcounter{exercise}
+
+\newcommand{\exercise}{\addtocounter{exercise}{1}\noindent\textbf{Exercise \arabic{section}.\arabic{exercise}. }}
+
+\begin{document}
+
+\date{2015-12-10}
+
+\author{Dumb ways to die\\
+Runzhe Yang, Songyu Ke, Xingyuan Sun \& Tianyao Chen}
+
+\title{Algorithm Analysis\\
+  Homework Assignment 5 \\
+}
+\maketitle
+\hrule\hrule\hrule\hrule
+\setcounter{section}{4}
+\section{Basic Probability Theory}
+\setcounter{subsection}{0}
+
+\begin{exercise}
+	
+\end{exercise}
+
+\begin{exercise}
+
+\end{exercise}
+
+\begin{exercise}
+	
+\end{exercise}
+
+\begin{exercise}
+	\begin{enumerate}
+		\item
 		\item
 		
 			Firstly, for any distinct $u, v, w \in \mathbb{F}_{p}$
@@ -56,7 +119,54 @@
 				= \frac{1}{p^3}
 			\end{eqnarray*}
 			
-			Secondly,
+			Secondly, for any distinct $u, v \in \mathbb{F}_{p}$
+			\begin{eqnarray*}
+				&&\text{Pr}[Y_u = i, Y_v = j] \\
+				= &&\text{Pr}[a + bu + cu^2 = i, a + bv + cv^2 = j] \\
+				= &&\text{Pr}[
+				\left[
+				\begin{matrix}
+					1 & u & u^2 \\
+					1 & v & v^2
+				\end{matrix}
+				\right]
+				\left[
+				\begin{matrix}
+					a \\
+					b
+				\end{matrix}
+				\right]
+				=
+				\left[
+				\begin{matrix}
+					i \\
+					j
+				\end{matrix}
+				\right]
+				]
+			\end{eqnarray*}
+			
+			Note that
+			\[
+				rank
+				\left(
+				\begin{matrix}
+					1 & u & u^2 \\
+					1 & v & v^2
+				\end{matrix}
+				\right) = 2
+			\]
+			
+			So the system of linear equations above has $p$ solutions in $\mathbb{F}^{3}_{p}$.
+			
+			Therefore,
+			\begin{eqnarray*}
+				\text{Pr}[Y_u = i, Y_v = j]
+				= \frac{p}{p^3}
+				= \frac{1}{p^2}
+			\end{eqnarray*}
+			
+			Thirdly,
 			\begin{eqnarray*}
 				&&\text{Pr}[Y_u = i] \\
 				= &&\text{Pr}[a + bu + cu^2 = i]
@@ -83,10 +193,16 @@
 			
 			Therefore,
 			\[
+				\text{Pr}[Y_u = i] \cdot \text{Pr}[Y_v = j] = \frac{1}{p} \cdot \frac{1}{p} = \frac{1}{p^2}
+			\]
+			\[
 				\text{Pr}[Y_u = i] \cdot \text{Pr}[Y_v = j] \cdot \text{Pr}[Y_w = k] = \frac{1}{p} \cdot \frac{1}{p} \cdot \frac{1}{p} = \frac{1}{p^3}
 			\]
 			
-			Finally,
+			Finally, for any distinct $u, v, w \in \mathbb{F}_{p}$
+			\[
+				\text{Pr}[Y_u = i, Y_v = j] = \text{Pr}[Y_u = i] \cdot \text{Pr}[Y_v = j]
+			\]
 			\[
 				\text{Pr}[Y_u = i, Y_v = j, Y_w = k] = \text{Pr}[Y_u = i] \cdot \text{Pr}[Y_v = j] \cdot \text{Pr}[Y_w = k]
 			\]
@@ -97,6 +213,7 @@
 			$\mathcal{H} = \{ f | f(x) = a x^2 + b x + c \quad a,b,c \in \mathbb{F}_{p} \}$
 			
 			\begin{proof}
+			
 				Obviously, $|\mathcal{H}| = p^3$.
 				
 				For any distinct $u, v, w \in \mathbb{F}_{p}$ and arbitrary $i, j, k \in \mathbb{F}_{p}$,
@@ -156,3 +273,8 @@
 					= \frac{1}{p^3}
 				\end{eqnarray*}
 			\end{proof}
+		
+	\end{enumerate}
+\end{exercise}
+
+\end{document}

@@ -1,0 +1,41 @@
+Suppose our algorithm $f$ have $s$ bits of memory. Then we have $S:|S|=2^s$ different states.
+
+For any given sequence $\mathbf{a}$, we make $D(\mathbf{a})$ stands for the set
+\[
+	D(\mathbf{a}) = \{a_0,a_1,\ldots,a_{\mathrm{length}(\mathbf{a})-1}\}
+\]
+and $f(\mathbf{a})\in S$ stands for the state our program reach when we have received the sequence $\mathbf{a}$.
+
+If we have two sequences $\mathbf{a}$ and $\mathbf{b}$, and they consists of different set of elements
+\[
+	D(\mathbf{a})\neq D(\mathbf{b})
+\]
+Then there is at least one element such that
+\[
+	e\in D(\mathbf{a})-D(\mathbf{b})\quad\mathrm{or}\quad e\in D(\mathbf{b})-D(\mathbf{a})
+\]
+
+Without the loss of generality, we can only consider the first case.
+
+We claim that $f(\mathbf{a})\neq f(\mathbf{b})$.
+
+Proving by contradiction, if $f(\mathbf{a})=f(\mathbf{b})$, then
+\[
+	f(\mathbf{a}e)=f(\mathbf{b}e)
+\]
+When we end up here, we would get the same result for sequences $\mathbf{a}$ and $\mathbf{b}$.
+
+Since $|D(\mathbf{a}|\neq|D(\mathbf{b})|$, then our algorithm returns a wrong result. There comes a contradiction. Thus
+\[
+	f(\mathbf{a})\neq f(\mathbf{b})
+\]
+
+Now we have proved our claim and we can rethink $f$ as a injection from $2^{[n]}$ (the set of all subsets of $[n]$) to $S$. Naturally we get
+\[
+	|S|=2^s\geq|2^[n]|=2^n
+\]
+It comes
+\[
+	s\geq n
+\]
+So we must have at least $n$ bits to solve the problem.

@@ -1,0 +1,33 @@
+
+			There is a trivial deterministic algorithm with $O(n)$ time and $O(n)$ space.
+			
+			Let $b$ be an array of size $n$.
+		
+			The algorithm works as follows.
+			\begin{enumerate}
+				\item
+					$b_i \leftarrow 0 \quad \forall i$
+				\item
+					if $i \leq n$, then $b_{a_i} \leftarrow 1$;
+					else goto \textbf{Step d}
+				\item
+					$i \leftarrow i + 1$
+				\item
+					Find a $i_0$ such that $b_{i_0}$ equal to $0$, then print $i_0$
+			\end{enumerate}
+			
+			But $m < \sqrt{n}$, so we can improve our algorithm.
+			
+			Let $c$ be an array of size $m$.
+			The new algorithm works as follows, with $O(m\text{log}m)$ time and $O(m)$ space.
+			\begin{enumerate}
+				\item
+					empty $c$
+				\item
+					if $i \leq n$, then $c_i \leftarrow a_i$;
+					else goto \textbf{Step d}
+				\item
+					$i \leftarrow i + 1$
+				\item
+					Sort $c$, then we can easily output a number not in $\{a_1, a_2 \cdots a_m\}$
+			\end{enumerate}

@@ -1,0 +1,6 @@
+Our algorithm randomly guess a solution $x\in[n]$ and check each coming input, if $a_i=x$ for some $i$, then we output $?$, otherwise we output $x$.
+
+Since the the guessed solution was selected randomly and independently with the input, then
+\[
+	P(\mathrm{output}\;?)=P(\exists i,a_i=x)=\frac{m}{n}\leq1/1000
+\]

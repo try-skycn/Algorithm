@@ -1,0 +1,68 @@
+
+			\begin{eqnarray*}
+				&&\text{Var}[X^4] \\
+				= &&\mathbb{E}[X^8] - \mathbb{E}[X^4]^2 \\
+				= &&\mathbb{E}[\sum_{i_1, i_2, i_3, i_4, i_5, i_6, i_7, i_8 = 1}^n f_{i_1} f_{i_2} f_{i_3} f_{i_4} f_{i_5} f_{i_6} f_{i_7} f_{i_8} \sigma(i_1) \sigma(i_2) \sigma(i_3) \sigma(i_4) \sigma(i_5) \sigma(i_6) \sigma(i_7) \sigma(i_8)]\\
+				&&- (\sum_{i = 1}^n f_i^4)^2
+			\end{eqnarray*}
+			
+			So
+			\begin{eqnarray*}
+				&&\mathbb{E}[X^8] \\
+				= && \sum_{i_1, i_2, i_3, i_4, i_5, i_6, i_7, i_8 = 1}^n f_{i_1} f_{i_2} f_{i_3} f_{i_4} f_{i_5} f_{i_6} f_{i_7} f_{i_8} \mathbb{E}[\sigma(i_1) \sigma(i_2) \sigma(i_3) \sigma(i_4) \sigma(i_5) \sigma(i_6) \sigma(i_7) \sigma(i_8)]
+			\end{eqnarray*}
+			
+			Note that $\sigma$ is 8-wise independent.
+			For $x$ randomly chosen from $\{-1, 1, -i, i\}$, $\mathbb{E}(x) = 0$, $\mathbb{E}(x^2) = 0$, $\mathbb{E}(x^3) = 0$, $\mathbb{E}(x^4) = 1$.
+			
+			Thus
+			\begin{eqnarray*}
+				\mathbb{E}[X^8] &&= \frac{1}{2} \binom{8}{4} \sum_{i \neq j} f_{i}^4 f_{j}^4 \mathbb{E}[\sigma(i)^4 \sigma(j)^4]+ \sum_{i} f_{i}^8 \mathbb{E}[\sigma(i)^8] \\
+				&&= 35 \sum_{i \neq j} f_{i}^4 f_{j}^4 \mathbb{E}[\sigma(i)^4 \sigma(j)^4] + \sum_{i} f_{i}^8 \mathbb{E}[\sigma(i)^8] \\
+				&&= 35 \sum_{i \neq j} f_{i}^4 f_{j}^4 + \sum_{i} f_{i}^8
+			\end{eqnarray*}
+			
+			Therefore
+			\begin{eqnarray*}
+				\text{Var}[X^4]
+				= &&35 \sum_{i \neq j} f_{i}^4 f_{j}^4 + \sum_{i} f_{i}^8 - (\sum_{i = 1}^n f_i^4)^2 \\
+				= &&34 \sum_{i \neq j} f_{i}^4 f_{j}^4 \\
+				< &&34 \sum_{i, j} f_{i}^4 f_{j}^4 \\
+				= &&34 (\sum_{i} f_{i}^4)^2 \\
+			\end{eqnarray*}
+			
+			Thus
+			\[
+				\text{Pr}[|X^4 - \mathbb{E}[X^4]| > \varepsilon \mathbb{E}[X^4]] \leq \frac{\text{Var}[X^4]}{\varepsilon^2 \mathbb{E}[X^4]^2} \leq \frac{34}{\varepsilon^2}
+			\]
+			which is useless.
+			
+			But we can use a trick.
+			
+			We can use $t$ independent $\sigma$ to get a better estimator.
+			Then we will get $t$ results.
+			Denote them as $X_1, X_2 \cdots X_t$.
+			
+			Let $Z = \frac{1}{t} (X_1^4 + X_2^4 + \cdots + X_t^4)$.
+			
+			So
+			\[
+				\mathbb{E}[Z] = \mathbb{E}[\frac{1}{t} (X_1^4 + X_2^4 + \cdots + X_t^4)] = \mathbb{E}[X^4]
+			\]
+			\[
+				\text{Var}[Z] = \frac{1}{t^2} \cdot t \cdot \text{Var}[X_1^4] = \frac{1}{t} \cdot \text{Var}[X_1^4]
+			\]
+			
+			Thus
+			\[
+				\text{Pr}[|Z - \mathbb{E}[Z]| > \varepsilon \mathbb{E}[Z]] \leq \frac{\text{Var}[Z]}{\varepsilon^2 \mathbb{E}[Z]^2} \leq \frac{34}{t\varepsilon^2}
+			\]
+			
+			Then we can choose $t = \frac{1000}{\varepsilon^2}$.
+			
+			Then
+			\[
+				\text{Pr}[|Z - \mathbb{E}[Z]| > \varepsilon \mathbb{E}[Z]] \leq \frac{\text{Var}[Z]}{\varepsilon^2 \mathbb{E}[Z]^2} \leq \frac{34}{1000}
+			\]
+			
+			Finally, $Z = \frac{1}{t} (X_1^4 + X_2^4 + \cdots + X_t^4)$ is a good estimator when $t$ is enough.

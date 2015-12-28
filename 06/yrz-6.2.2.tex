@@ -1,0 +1,44 @@
+\begin{proof}
+				Because $\sigma: [n] \rightarrow \{-1, 1, -i, i\}$ is 4-wise independent and uniform distributed. Then we have 
+				\begin{eqnarray*}
+					\mathbb{E}[\sigma(x)] &= &\mathbb{P}[\sigma(x) = -1] \cdot (-1) + \mathbb{P}[\sigma(x) = 1] \cdot 1\\ 
+					&& + \mathbb{P}[\sigma(x) = -i] \cdot (-i) + \mathbb{P}[\sigma(x) = i] \cdot i\\
+					&= &\frac{1}{4} \cdot (-1) + \frac{1}{4} \cdot 1 + \frac{1}{4} \cdot (-i) + \frac{1}{4} \cdot i = 0
+				\end{eqnarray*}
+				Since $(-1)^2 = 1, 1^2 = 1, (-i)^2 = -1, i^2 = -1$, so that 
+				\[\mathbb{P}[\sigma^2(x) = 1] = \mathbb{P}[\sigma(x) = -1] + \mathbb{P}[\sigma(x) = 1] = \frac{1}{4}\]
+				\[\mathbb{P}[\sigma^2(x) = -1] = \mathbb{P}[\sigma(x) = -i] + \mathbb{P}[\sigma(x) = i] = \frac{1}{4}\]
+				Thus we can derive
+				\begin{eqnarray*}
+					\mathbb{E}[\sigma^2(x)] &= &\mathbb{P}[\sigma^2(x) = 1] \cdot 1 + \mathbb{P}[\sigma^2(x) = -1] \cdot (-1)\\ 
+					&= &\frac{1}{2} \cdot 1 + \frac{1}{2} \cdot (-1)=0
+				\end{eqnarray*}
+ 				Similarly, 
+ 				\begin{eqnarray*}
+					\mathbb{E}[\sigma^3(x)] &= &\mathbb{P}[\sigma^3(x) = -1] \cdot (-1) + \mathbb{P}[\sigma^3(x) = 1] \cdot 1\\ 
+					&& + \mathbb{P}[\sigma^3(x) = -i] \cdot (-i) + \mathbb{P}[\sigma^3(x) = i] \cdot i\\
+					&= &\frac{1}{4} \cdot (-1) + \frac{1}{4} \cdot 1 + \frac{1}{4} \cdot (-i) + \frac{1}{4} \cdot i = 0\\\\
+					\mathbb{E}[\sigma^4(x)] &= &\mathbb{P}[\sigma^4(x) = 1] \cdot 1 = 1
+				\end{eqnarray*}
+				Expand $\mathbb{E}[X^4]$ using the 4-wise independent property,
+				\begin{eqnarray*}
+					\mathbb{E}[X^4] &= &\mathbb{E}[[\sum_{k=1}^n f_k \sigma(k)]^4]\\
+					&= &\mathbb{E}[\sum_{1 \leq i, j ,k, l \leq n}^n (f_i \sigma(i) \cdot f_j \sigma(j) \cdot f_k \sigma(k) \cdot f_l \sigma(l))]\\
+					&= &\sum_{1 \leq i, j ,k, l \leq n}^n\mathbb{E}[(f_i \sigma(i) \cdot f_j \sigma(j) \cdot f_k \sigma(k) \cdot f_l \sigma(l))]\\
+					&= &24\cdot\sum_{1 \leq i< j < k < l \leq n}^n\mathbb{E}[(f_i \sigma(i) \cdot f_j \sigma(j) \cdot f_k \sigma(k) \cdot f_l \sigma(l))]\\
+					&& +18\cdot\sum_{1 \leq i = j < k < l \leq n}^n\mathbb{E}[(f_i \sigma(i) \cdot f_j \sigma(j) \cdot f_k \sigma(k) \cdot f_l \sigma(l))]\\
+					&& +8\cdot\sum_{1 \leq i = j = k < l \leq n}^n\mathbb{E}[(f_i \sigma(i) \cdot f_j \sigma(j) \cdot f_k \sigma(k) \cdot f_l \sigma(l))]\\
+					&& +6\cdot\sum_{1 \leq i = j < k = l \leq n}^n\mathbb{E}[(f_i \sigma(i) \cdot f_j \sigma(j) \cdot f_k \sigma(k) \cdot f_l \sigma(l))]\\
+					&&+ \sum_{1 \leq i = j = k = l \leq n}^n\mathbb{E}[(f_i \sigma(i) \cdot f_j \sigma(j) \cdot f_k \sigma(k) \cdot f_l \sigma(l))]
+				\end{eqnarray*}
+				Because $\mathbb{E}[aX] = a\mathbb{E}[X]$, where $a$ is a constant and $X$ is a random variable and the values of expectations we have obtained, it can be calculated as follow
+				\begin{eqnarray*}
+					\mathbb{E}[X^4]&= &24\cdot\sum_{1 \leq i< j < k < l \leq n}^nf_i\mathbb{E}[\sigma(i)] \cdot f_j\mathbb{E}[\sigma(j)] \cdot f_k\mathbb{E}[ \sigma(k)] \cdot f_l\mathbb{E}[ \sigma(l)]]\\
+					&& +18\cdot\sum_{1 \leq i < j < k \leq n}^n f_i^2\mathbb{E}[\sigma(i)^2] \cdot f_j\mathbb{E}[\sigma(j)] \cdot f_k\mathbb{E}[\sigma(k))]]\\
+					&& +8\cdot\sum_{1 \leq i < j \leq n}^n f_i^3\mathbb{E}[\sigma^3(i)] \cdot f_j\mathbb{E}[\sigma(j)]\\
+					&& +6\cdot\sum_{1 \leq i < j \leq n}^n f_i^2\mathbb{E}[\sigma^2(i) \cdot f_j^2\mathbb{E}[\sigma^2(j)]\\
+					&&+ \sum_{1 \leq i \leq n}^n f_i^4\mathbb{E}[\sigma^4(i)]\\
+					&= &0 + \sum_{1 \leq i \leq n}^n f_i^4 = F_4\\
+				\end{eqnarray*}
+			Hence $\mathbb{E}[X^4]$ is an unbiased estimator of $F_4$.
+			\end{proof}

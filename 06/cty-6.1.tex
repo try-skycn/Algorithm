@@ -1,4 +1,4 @@
-Suppose our algorithm $f$ have $s$ bits of memory. Then we have $S:|S|=2^s$ different states.
+Suppose our algorithm $f$ has $s$ bits of memory. Then we have $S:|S|=2^s$ different states.
 
 For any given sequence $\mathbf{a}$, we make $D(\mathbf{a})$ stands for the set
 \[
@@ -15,24 +15,40 @@ Then there is at least one element such that
 	e\in D(\mathbf{a})-D(\mathbf{b})\quad\mathrm{or}\quad e\in D(\mathbf{b})-D(\mathbf{a})
 \]
 
-Without the loss of generality, we can only consider the first case.
-
 We claim that $f(\mathbf{a})\neq f(\mathbf{b})$.
 
 Proving by contradiction, if $f(\mathbf{a})=f(\mathbf{b})$, then
 \[
-	f(\mathbf{a}e)=f(\mathbf{b}e)
+	f(\mathbf{a}e)=f(\mathbf{b}e)\quad\forall e\in[n]
 \]
-When we end up here, we would get the same result for sequences $\mathbf{a}$ and $\mathbf{b}$.
+If we end up here, we would get the same result for sequences $\mathbf{a}e$ and $\mathbf{b}e$.
 
-Since $|D(\mathbf{a}|\neq|D(\mathbf{b})|$, then our algorithm returns a wrong result. There comes a contradiction. Thus
+Now we consider two situations.
+
+\begin{enumerate}[1.]
+	\item $|D(\mathbf{a})|=|D(\mathbf{b})|-1$.
+		If so, we select $e=D(\mathbf{a})-D(\mathbf{b})$, then
+		\[
+			|D(\mathbf{a}e)|=|D(\mathbf{b}e)|-2\neq|D(\mathbf{b}e)|
+		\]
+		But our algorithm would output same result for $\mathbf{a}e$ and $\mathbf{b}e$.
+		
+	\item Otherwise.
+		We select $e=D(\mathbf{b})-D(\mathbf{a})$, then
+		\[
+			|D(\mathbf{a}e)|=|D(\mathbf{a})|+1\neq|D(\mathbf{b})|=|D(\mathbf{b}e)|
+		\]
+		But our algorithm would output same result for $\mathbf{a}e$ and $\mathbf{b}e$.
+\end{enumerate}
+
+Both cases lead to a contradiction. Thus
 \[
 	f(\mathbf{a})\neq f(\mathbf{b})
 \]
 
 Now we have proved our claim and we can rethink $f$ as a injection from $2^{[n]}$ (the set of all subsets of $[n]$) to $S$. Naturally we get
 \[
-	|S|=2^s\geq|2^[n]|=2^n
+	|S|=2^s\geq|2^{[n]}|=2^n
 \]
 It comes
 \[
